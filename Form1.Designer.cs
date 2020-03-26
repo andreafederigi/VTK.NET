@@ -30,6 +30,8 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lineToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.longLineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +58,9 @@
             this.superEllipsoidToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.superToroidToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +72,8 @@
             this.pointToolStripMenuItem,
             this.polygonToolStripMenuItem,
             this.solidsToolStripMenuItem,
-            this.parametricToolStripMenuItem});
+            this.parametricToolStripMenuItem,
+            this.testToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(758, 24);
@@ -76,10 +82,27 @@
             // 
             // mainToolStripMenuItem
             // 
+            this.mainToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openImageToolStripMenuItem,
+            this.quitToolStripMenuItem});
             this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
-            this.mainToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
-            this.mainToolStripMenuItem.Text = "Quit";
+            this.mainToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.mainToolStripMenuItem.Text = "Main";
             this.mainToolStripMenuItem.Click += new System.EventHandler(this.mainToolStripMenuItem_Click);
+            // 
+            // openImageToolStripMenuItem
+            // 
+            this.openImageToolStripMenuItem.Name = "openImageToolStripMenuItem";
+            this.openImageToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.openImageToolStripMenuItem.Text = "Open Image";
+            this.openImageToolStripMenuItem.Click += new System.EventHandler(this.openImageToolStripMenuItem_Click);
+            // 
+            // quitToolStripMenuItem
+            // 
+            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // lineToolStripMenuItem
             // 
@@ -174,105 +197,105 @@
             // torusToolStripMenuItem
             // 
             this.torusToolStripMenuItem.Name = "torusToolStripMenuItem";
-            this.torusToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.torusToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.torusToolStripMenuItem.Text = "Torus";
             this.torusToolStripMenuItem.Click += new System.EventHandler(this.torusToolStripMenuItem_Click);
             // 
             // boyToolStripMenuItem
             // 
             this.boyToolStripMenuItem.Name = "boyToolStripMenuItem";
-            this.boyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.boyToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.boyToolStripMenuItem.Text = "Boy";
             this.boyToolStripMenuItem.Click += new System.EventHandler(this.boyToolStripMenuItem_Click);
             // 
             // conicSpiralToolStripMenuItem
             // 
             this.conicSpiralToolStripMenuItem.Name = "conicSpiralToolStripMenuItem";
-            this.conicSpiralToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.conicSpiralToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.conicSpiralToolStripMenuItem.Text = "ConicSpiral";
             this.conicSpiralToolStripMenuItem.Click += new System.EventHandler(this.conicSpiralToolStripMenuItem_Click);
             // 
             // crossCapToolStripMenuItem
             // 
             this.crossCapToolStripMenuItem.Name = "crossCapToolStripMenuItem";
-            this.crossCapToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crossCapToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.crossCapToolStripMenuItem.Text = "CrossCap";
             this.crossCapToolStripMenuItem.Click += new System.EventHandler(this.crossCapToolStripMenuItem_Click);
             // 
             // diniToolStripMenuItem
             // 
             this.diniToolStripMenuItem.Name = "diniToolStripMenuItem";
-            this.diniToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.diniToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.diniToolStripMenuItem.Text = "Dini";
             this.diniToolStripMenuItem.Click += new System.EventHandler(this.diniToolStripMenuItem_Click);
             // 
             // ellipsoidToolStripMenuItem
             // 
             this.ellipsoidToolStripMenuItem.Name = "ellipsoidToolStripMenuItem";
-            this.ellipsoidToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ellipsoidToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.ellipsoidToolStripMenuItem.Text = "Ellipsoid";
             this.ellipsoidToolStripMenuItem.Click += new System.EventHandler(this.ellipsoidToolStripMenuItem_Click);
             // 
             // enneperToolStripMenuItem
             // 
             this.enneperToolStripMenuItem.Name = "enneperToolStripMenuItem";
-            this.enneperToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.enneperToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.enneperToolStripMenuItem.Text = "Enneper";
             this.enneperToolStripMenuItem.Click += new System.EventHandler(this.enneperToolStripMenuItem_Click);
             // 
             // figure8KleinToolStripMenuItem
             // 
             this.figure8KleinToolStripMenuItem.Name = "figure8KleinToolStripMenuItem";
-            this.figure8KleinToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.figure8KleinToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.figure8KleinToolStripMenuItem.Text = "Figure8Klein";
             this.figure8KleinToolStripMenuItem.Click += new System.EventHandler(this.figure8KleinToolStripMenuItem_Click);
             // 
             // kleinToolStripMenuItem
             // 
             this.kleinToolStripMenuItem.Name = "kleinToolStripMenuItem";
-            this.kleinToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kleinToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.kleinToolStripMenuItem.Text = "Klein";
             this.kleinToolStripMenuItem.Click += new System.EventHandler(this.kleinToolStripMenuItem_Click);
             // 
             // mobiusToolStripMenuItem
             // 
             this.mobiusToolStripMenuItem.Name = "mobiusToolStripMenuItem";
-            this.mobiusToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mobiusToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.mobiusToolStripMenuItem.Text = "Mobius";
             this.mobiusToolStripMenuItem.Click += new System.EventHandler(this.mobiusToolStripMenuItem_Click);
             // 
             // randomHillsToolStripMenuItem
             // 
             this.randomHillsToolStripMenuItem.Name = "randomHillsToolStripMenuItem";
-            this.randomHillsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.randomHillsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.randomHillsToolStripMenuItem.Text = "RandomHills";
             this.randomHillsToolStripMenuItem.Click += new System.EventHandler(this.randomHillsToolStripMenuItem_Click);
             // 
             // romanToolStripMenuItem
             // 
             this.romanToolStripMenuItem.Name = "romanToolStripMenuItem";
-            this.romanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.romanToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.romanToolStripMenuItem.Text = "Roman";
             this.romanToolStripMenuItem.Click += new System.EventHandler(this.romanToolStripMenuItem_Click);
             // 
             // splineToolStripMenuItem
             // 
             this.splineToolStripMenuItem.Name = "splineToolStripMenuItem";
-            this.splineToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.splineToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.splineToolStripMenuItem.Text = "Spline";
             this.splineToolStripMenuItem.Click += new System.EventHandler(this.splineToolStripMenuItem_Click);
             // 
             // superEllipsoidToolStripMenuItem
             // 
             this.superEllipsoidToolStripMenuItem.Name = "superEllipsoidToolStripMenuItem";
-            this.superEllipsoidToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.superEllipsoidToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.superEllipsoidToolStripMenuItem.Text = "SuperEllipsoid";
             this.superEllipsoidToolStripMenuItem.Click += new System.EventHandler(this.superEllipsoidToolStripMenuItem_Click);
             // 
             // superToroidToolStripMenuItem
             // 
             this.superToroidToolStripMenuItem.Name = "superToroidToolStripMenuItem";
-            this.superToroidToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.superToroidToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.superToroidToolStripMenuItem.Text = "SuperToroid";
             this.superToroidToolStripMenuItem.Click += new System.EventHandler(this.superToroidToolStripMenuItem_Click);
             // 
@@ -286,6 +309,17 @@
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.testToolStripMenuItem.Text = "Test";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,7 +329,8 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "VTK Test Learning Project";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -333,6 +368,11 @@
         private System.Windows.Forms.ToolStripMenuItem splineToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem superEllipsoidToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem superToroidToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openImageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,7 +46,7 @@ namespace VTKTest
         }
 
         private void mainToolStripMenuItem_Click(object sender, EventArgs e) {
-            Application.Exit(); }
+            }
         private void lineToolStripMenuItem_Click(object sender, EventArgs e) {
             Line();  }
         private void ColoredLinesToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -141,5 +142,57 @@ namespace VTKTest
             DrawParametricObjects(VTKParametric.SuperToroid );
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void openImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImportVTK();
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            SaveFileDialog SaveFileDialog1 = new SaveFileDialog();
+
+            SaveFileDialog1.CreatePrompt = true;
+            SaveFileDialog1.OverwritePrompt = true;
+
+            // Set the file name to myText.txt, set the type filter
+            // to text files, and set the initial directory to the 
+            // MyDocuments folder.
+            SaveFileDialog1.FileName = "myImage";
+            // DefaultExt is only used when "All files" is selected from 
+            // the filter box and no extension is specified by the user.
+            SaveFileDialog1.DefaultExt = "png";
+            SaveFileDialog1.Filter =
+                "png files (*.png)|*.png|All files (*.*)|*.*";
+            SaveFileDialog1.InitialDirectory =
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            // Call ShowDialog and check for a return value of DialogResult.OK,
+            // which indicates that the file was saved. 
+            DialogResult result = SaveFileDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                // Open the file, copy the contents of memoryStream to fileStream,
+                // and close fileStream. Set the memoryStream.Position value to 0 
+                // to copy the entire stream. 
+                string fileName = SaveFileDialog1.FileName;
+                WritePNG(fileName);
+
+                         
+            }
+      
+            
+        }
     }
 }
